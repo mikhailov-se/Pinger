@@ -12,7 +12,7 @@ namespace Pinger
             _logger = LogManager.GetCurrentClassLogger();
         }
 
-        public void Log(string mes)
+        public void LogSuccess(string mes)
         {
             _logger.Info(mes);
         }
