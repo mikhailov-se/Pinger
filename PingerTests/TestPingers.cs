@@ -1,6 +1,5 @@
 using System;
 using NUnit.Framework;
-using Pinger;
 using Pinger.Pingers;
 
 namespace PingerTests
