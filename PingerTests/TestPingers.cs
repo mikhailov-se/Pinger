@@ -1,5 +1,6 @@
 using System;
 using NUnit.Framework;
+using Pinger;
 using Pinger.Pingers;
 
 namespace PingerTests
@@ -41,6 +42,8 @@ namespace PingerTests
             Assert.DoesNotThrow(() => { icmpPinger.Ping("8.8.8.8", 443, 2); });
 
             Assert.Throws<Exception>(() => { icmpPinger.Ping("WrongUrl", 443, 2); });
+
+            
         }
     }
 }
