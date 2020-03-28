@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Net;
 using System.Net.Sockets;
-using System.Threading.Tasks;
 using Pinger.Interfaces;
 
 namespace Pinger.Pingers
 {
-   public class IcmpPinger : IPinger
+    public class IcmpPinger : IPinger
     {
         private readonly ILogger _logger;
 
@@ -28,7 +27,7 @@ namespace Pinger.Pingers
                 var tsk = socket.ConnectAsync(endPoint);
 
                 if (tsk.Wait(timeout) && socket.Connected)
-                    _logger.Log(endPoint.Address + ":" + +port + " Ok");
+                    _logger.LogSuccess(endPoint.Address + ":" + +port + " Ok");
                 else
                     _logger.LogError(endPoint.Address + ":" + +port + "Failed");
 

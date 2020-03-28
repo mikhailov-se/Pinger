@@ -28,7 +28,7 @@ namespace Pinger.Pingers
 
                     if (task.Result.IsSuccessStatusCode)
                     {
-                        _logger.Log(hostName + " OK");
+                        _logger.LogSuccess(hostName + " OK");
                     }
                     else
                     {

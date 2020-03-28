@@ -27,10 +27,9 @@ namespace Pinger.Pingers
                     : client.ConnectAsync(hostName, port);
 
                 if (tsk.Wait(timeout) && client.Connected)
-                    _logger.Log(hostName + ":" +  + port + " Ok");
+                    _logger.LogSuccess(hostName + ":" + +port + " Ok");
                 else
                     _logger.LogError(hostName + ":" + +port + " Failed");
-
             }
 
             catch (WebException e)
