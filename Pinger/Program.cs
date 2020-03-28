@@ -1,25 +1,16 @@
 ﻿using System;
 using System.Configuration;
-using System.Globalization;
-using System.Linq;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Net.NetworkInformation;
-using System.Net.Sockets;
 using System.Threading;
 using Ninject;
 using Pinger.Configs;
 using Pinger.Interfaces;
-using Pinger.Pingers;
 
 namespace Pinger
 {
-    internal class Program
+    public class Program
     {
         private static void Main(string[] args)
         {
-            IKernel kernel = new StandardKernel(new NinjectConfigModule());
-
             using var timer = new Timer(Ping, null, 0, GetInterval());
 
             Console.Read();
@@ -31,9 +22,9 @@ namespace Pinger
             var pinger = GetPinger();
             var host = ConfigurationManager.AppSettings.Get("Host");
             var responseTimeout = GetResponseTimeout();
-
             var port = GetPort();
-            pinger.Ping(host, GetPort(), responseTimeout);
+           
+            pinger.Ping(host, port, responseTimeout);
         }
 
 
@@ -72,10 +63,6 @@ namespace Pinger
             var port = ConfigurationManager.AppSettings.Get("Port");
             return int.Parse(port);
         }
-
-
-
-
 
     }
 }
